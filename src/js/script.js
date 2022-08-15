@@ -42,7 +42,7 @@ function takeAndShowWeatherCity() {
     })
     
     // Take the longitude and latitude of the city selected.
-    fetchAPI(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=a8964c08f0867f5163d14200e7698d52`).then(response => { 
+    fetchAPI(`https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=a8964c08f0867f5163d14200e7698d52`).then(response => { 
         response.every(function(local) {
             globalThis.lat = local.lat; 
             globalThis.lon = local.lon;
