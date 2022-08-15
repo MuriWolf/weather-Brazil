@@ -72,8 +72,8 @@ function takeAndShowWeatherCity() {
             let sunset = response.sys.sunset;
 
             // Transform the soconds in hours.
-            const sunriseHours = (new Date(sunrise*1000-(timezone)).getHours() + (new Date(sunrise*1000-(timezone)).getMinutes() / 60)).toFixed(2);
-            const sunsetHours = (new Date(sunset*1000-(timezone)).getHours() + (new Date(sunset*1000-(timezone)).getMinutes() / 60)).toFixed(2);
+            const sunriseHours = Number((new Date(sunrise*1000-(timezone)).getHours() + (new Date(sunrise*1000-(timezone)).getMinutes() / 60)).toFixed(2));
+            const sunsetHours = Number((new Date(sunset*1000-(timezone)).getHours() + (new Date(sunset*1000-(timezone)).getMinutes() / 60)).toFixed(2));
 
             sunrise = new Date(sunrise*1000-(timezone)).toLocaleTimeString();
             sunset = new Date(sunset*1000-(timezone)).toLocaleTimeString();
@@ -91,7 +91,7 @@ function takeAndShowWeatherCity() {
             updateData(windDeg+"°", ".wind-deg");
             updateData(visibility+"m", ".visibility");
 
-            const nowHours = (new Date().getHours() + (new Date().getMinutes() / 60)).toFixed(2); 
+            let nowHours = (new Date().getHours() + (new Date().getMinutes() / 60)).toFixed(2); 
             const weatherConditions = document.querySelector(".weather-conditions");
             const body = document.getElementById("body");
 
@@ -102,7 +102,8 @@ function takeAndShowWeatherCity() {
                 body.classList.add("bg-night");
                 body.classList.remove("bg-day");
 
-            } else if (nowHours < sunsetHours && nowHours > sunrise) {
+            } else if (nowHours < sunsetHours || nowHours > sunrise) {
+                console.log("dia");
                 weatherConditions.classList.add("bg-day");
                 weatherConditions.classList.remove("bg-night");
                 body.classList.add("bg-day");
