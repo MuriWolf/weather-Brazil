@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>clima</title>
+    <link rel="shortcut icon" href="icons/01d.png" type="image/x-icon">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+    <script src="https://kit.fontawesome.com/cbd566114a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="src/style/style.css" />
+  </head>
+  <body id="body">
+    <header
+      class="bg-dark bg-opacity-75 text-white d-flex justify-content-between align-content-center"
+    >
+    <div class="container">
+        <nav class="navbar navbar-expand-lg bg-light bg-transparent navbar-dark">
+        <div class="container-fluid ">
+          <a class="navbar-brand" href="#">WeatherBrazil</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse " id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" target="_blank" href="https://github.com/MuriWolf">Github</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  APIs Used
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" target="_blank" href="https://openweathermap.org/current">OpenWeather</a></li>
+                  <li><a class="dropdown-item" target="_blank" href="https://servicodados.ibge.gov.br/api/docs/localidades">Servicodados IBGE</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav> 
+    </div>
+    </header>
+
+    <main>
+        <div class="container rounded mx-auto ">
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-3 bg-white rounded shadow-lg mt-md-5 pb-3">
+                    <h2 class="mt-3">Select a state and city to see the now weather</h2>
+                    <label for="estados" class="form-label mt-3">Estado:</label>
+                    <select class="form-control mb-3" name="estados" id="estados"></select>
+                    <label for="estados" class="form-label">Cidade:</label>
+                    <select class="form-control" name="cidades" id="cidades"></select>
+                    <button class="btn w-100 btn-primary mt-4 btn-send">Search</button>
+                </div>
+                <div class="col-md-7 ms-md-5">
+                    <div class="row">
+                        <div class="col mx-auto p-0 rounded shadow-lg weather-conditions mt-md-5 mt-4 "  >
+                        <div class="d-flex flex-column justify-content-between text-white">
+                            <div class="d-flex bg-black bg-opacity-25 p-2 rounded-top">
+                                <h3 class="city-name">City</h3><h3>,</h3>
+                                <h3 class="state-name ms-3">State</h3>
+                            </div>
+                            <div class="d-flex justify-content-between p-3">
+                                <div>
+                                <h1 class="temp display-2">00°C</h1>
+                                <h4 class="weather fst-italic">weather</h4>
+                                </div>
+                                <div>
+                                <img class="weather-icon" src="icons/unknown.png" alt="" />
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="row mt-md-5 mt-4 rounded-top bg-white shadow-lg">
+                        <div class="col mx-auto rounded-bottom p-3">
+                            <h4>Weather today in <span class="city-name">City</span>, <span class="state-name">State</span></h4>
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                <h1 class="mb-0 feels-like">00.0°</h1>
+                                <p class="fst-italic">feels like</p>
+                                </div>
+                                <div class="d-flex flex-column justify-content-around">
+                                    <div class="d-flex align-items-center">
+                                        <img src="icons/42516-sunrise-over-mountains-icon.png" alt="">
+                                        <h6 class="mb-2 ms-2"> <span class="sunrise">6:00</span></h6>
+                                    </div>
+                                    <div class="d-flex align-items-center">
+                                        <img src="icons/42519-sunset-icon.png" alt="">
+                                        <h6 class="ms-2"><span class="sunset">6:00</span></h6>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row bg-white rounded-bottom pb-3 shadow-lg">
+                        <div class="col-md-6">
+                            <div class="border-top border-dark border-opacity-25 d-flex justify-content-between py-2">
+                                <div class="d-flex align-content-center">
+                                    <i class="fa-solid fa-droplet d-flex align-items-center"></i>
+                                    <h6 class="ms-1 mb-0">Humidity</h6>
+                                </div>
+                                <div class="humidity">0%</div>
+                            </div>
+                            <div class="border-top border-dark border-opacity-25 d-flex justify-content-between py-2">
+                                <div class="d-flex align-content-center">
+                                    <i class="fa-solid fa-weight-scale d-flex align-items-center"></i>
+                                    <h6 class="ms-1 mb-0">Pressure</h6>
+                                </div>
+                                <div class="pressure">0 hPa</div>
+                            </div>
+                            <div class="border-top border-dark border-opacity-25 d-flex justify-content-between py-2">
+                                <div class="d-flex align-content-center">
+                                    <i class="fa-solid fa-cloud"></i>
+                                    <h6 class="ms-1 mb-0">Cloulds</h6>
+                                </div>
+                                <div class="clouds">0%</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="border-top border-dark border-opacity-25 d-flex justify-content-between py-2">
+                                <div class="d-flex align-content-center">
+                                    <i class="fa-solid fa-eye d-flex align-items-center"></i>
+                                    <h6 class="ms-1 mb-0">Visibility</h6>
+                                </div>
+                                <div class="visibility">0m</div>
+                            </div>
+                            <div class="border-top border-dark border-opacity-25 d-flex justify-content-between py-2">
+                                <div class="d-flex align-content-center">
+                                    <i class="fa-solid fa-wind d-flex align-items-center"></i>
+                                    <h6 class="ms-1 mb-0">Wind speed</h6>
+                                </div>
+                                <div class="wind-speed">0 m/s</div>
+                            </div>
+                            <div class="border-top border-dark border-opacity-25 d-flex justify-content-between py-2">
+                                <div class="d-flex align-content-center">
+                                    <i class="fa-solid fa-wind d-flex align-items-center"></i>
+                                    <h6 class="ms-1 mb-0">Wind deg</h6>
+                                </div>
+                                <div class="wind-deg">0°</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script type="module" src="src/js/script.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+      integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
+      integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

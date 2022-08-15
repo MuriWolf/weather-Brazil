@@ -1,0 +1,27 @@
+:root {
+    --day-bg-primary: #44abff;
+    --day-bg-secondary: #9be8ff;
+
+    --night-bg-primary: #173d68;
+    --night-bg-secondary: #413f6e;
+}
+
+body {
+    min-height: 100vh;
+    background-color: rgb(235, 235, 235);
+} 
+
+.city-data > p, h5 {
+    margin-bottom: 0;
+}
+.city-data {
+    padding: 0.65em;
+}
+
+.bg-day {
+    background-image: linear-gradient(to bottom, var(--day-bg-primary), var(--day-bg-secondary)) !important;
+}
+
+.bg-night {
+    background-image: linear-gradient(to bottom, var(--night-bg-primary), var(--night-bg-secondary)) !important;
+}
