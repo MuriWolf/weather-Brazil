@@ -102,7 +102,7 @@ function takeAndShowWeatherCity() {
                 body.classList.add("bg-night");
                 body.classList.remove("bg-day");
 
-            } else {
+            } else if (nowHours < sunsetHours && nowHours > sunrise) {
                 weatherConditions.classList.add("bg-day");
                 weatherConditions.classList.remove("bg-night");
                 body.classList.add("bg-day");
